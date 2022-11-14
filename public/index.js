@@ -5,8 +5,10 @@
 // const { query } = require("express")
 
 
-let baseUrl = `/api/pokemo`
+const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
+
+let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
 const errCb = err => console.log(err)
 
@@ -38,12 +40,14 @@ function createPokemonCard(poke){
     const pokeCard = document.createElement('div')
     pokeCard.classList.add('poke-card')
 
-    pokeCard.innerHTML = `<img src=${poke.imageURL} class="pokemon-image"/>
-    <p class='name'> ${poke.name}</p>
+    pokeCard.innerHTML = `<div class='pokemon-outline'>
+    <img src=${poke.imageURL} class='pokemon-image'/>
     <div class='pokemon-stats'>
-    <p class='pokemon-health'>${poke.health}</p>
-    <p class='pokemon-attack'>${poke.attack}</p>
-    </div>`
+    <h2 class='name'> ${poke.name}</h1>
+    <h3 class='pokemon-health'>Health ${poke.health}</h3>
+    <h3 class='pokemon-attack'>Attack Power ${poke.attack}</h3>
+    </div>
+    `
 
     pokemonContainer.appendChild(pokeCard)
 }
@@ -57,5 +61,5 @@ function displayPokemon(arr){
         }
 }
 
-
+form.addEventListener('submit', submitHandler)
 getAllPokemon()
