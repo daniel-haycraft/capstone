@@ -1,0 +1,100 @@
+[
+    {
+        "id": 0,
+        "name": "Bulbasaur",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 39,
+        "health": 100
+    }, 
+    {
+        "id": 1,
+        "name": "Charmander",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 32,
+        "health": 100
+    },
+    {
+        "id": 2,
+        "name": "Froakie",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 26,
+        "health": 100
+    },
+    {
+        "id": 3,
+        "name": "Umbreon",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 21,
+        "health": 100
+    },
+    {
+        "id": 4,
+        "name": "Pikachu",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 24,
+        "health": 100
+    },
+    {
+        "id": 5,
+        "name": "Polywag",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 27,
+        "health": 100
+    },
+    {
+        "id": 6,
+        "name": "Scyther",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 34,
+        "health": 100
+    },
+    {
+        "id": 7,
+        "name": "Sharpedo",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 33,
+        "health": 100
+    },
+    {
+        "id": 8,
+        "name": "Sneasel",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 35,
+        "health": 100
+    },
+    {
+        "id": 9,
+        "name": "Squirtle",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 30,
+        "health": 100
+    },
+    {
+        "id": 10,
+        "name": "Totodile",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 28,
+        "health": 100
+    },
+    {
+        "id": 10,
+        "name": "Greninja",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 33,
+        "health": 100
+    },
+    {
+        "id": 12,
+        "name": "Rayquaza",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 16,
+        "health": 250
+    },
+    {
+        "id": 13,
+        "name": "Metagross",
+        "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/061.png",
+        "attack": 18,
+        "health": 220
+    }
+]
