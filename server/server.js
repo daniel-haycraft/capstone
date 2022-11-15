@@ -18,16 +18,35 @@ app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
 app.get('/api/pokemo', (req, res) =>{
   // let pokemon = require('./db.json')
-  pokemon.pop([12])
-  pokemon.pop([13])
+ 
     res.status(200).send(pokemon)
 })
-app.put('api/pokemo/:id', (req, res)=> {
-  const { id } = req.params;
-  const {name, health, attk} = req.body;
-  let pokemonIndex = pokemon.findIndex(poke => poke.id === +id);
-  
 
+
+// app.put('api/pokemo/:id', (req, res)=> {
+//   const { id } = req.params;
+//   const {name, health, attack} = req.body;
+//   const body = {
+//     name: newName
+//   }
+//   const pokeIndex = pokemon.findIndex((poke) => poke.id === +id)
+//   if (id === name){
+//     pokemon[pokeIndex].newName
+//      res.status(200).send(pokemon)
+//   }
+
+//   })
+app.post('/api/pokemo', (req, res)=> {
+  const {name, health, attack, imgURL, id} = req.body;
+  pokemon.push({
+    name,
+    health,
+    attack,
+    imgURL,
+    id
+    });
+    id++
+  res.status(200).send(pokemon)
 })
 
 

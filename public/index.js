@@ -2,11 +2,14 @@
 const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
 
+
+
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
 const errCb = err => console.log(err)
-const getAllPokemon = () => axios.get("/api/pokemo").then(pokemonCallback).catch(errCb)
-// const addPokemon = () => axios.post({})
+const getAllPokemon = () => axios.get(baseUrl).then(pokemonCallback).catch(errCb)
+// const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
+const createPokemon = body => axios.post(baseUrl, body).then(pokemonCallback).catch(errCb)
 function submitHandler(e) {
     e.preventDefault()
 
@@ -18,7 +21,7 @@ function submitHandler(e) {
     let bodyObj = {
         attack: attack.value,
         health: health.value, 
-        imgURL: imageURL.value,
+        imgURL: imgURL.value,
         name: name.value
     }
 
@@ -35,12 +38,11 @@ function createPokemonCard(poke){
 
     pokeCard.innerHTML = `<div class='pokemon-outline'>
     <img alt='pokemon cover image'src=${poke.imgURL} class="pokemon-image"/>
-    <h2 class='name'> ${poke.name}</h1>
-  <h5 class='pokemon-health'>HP ${poke.health}</h5>
-  <h5 class='pokemon-attack'> Attk ${poke.attack}</h5>
-  </div>
-  <div onclick="deletePokeman"(${poke.id})></div>
-    
+    <h1 class='card-name'> ${poke.name}</h1>
+    <h4 class='stats'>${poke.name}'s Stats</h4>
+  <p class='pokemon-health'>${poke.health}HP</p>
+  <p class='pokemon-attack'>Attack Power ${poke.attack}</p>
+  </div> 
     `
 
     pokemonContainer.appendChild(pokeCard)
@@ -56,5 +58,6 @@ function displayPokemon(arr){
         }
 }
 
-// form.addEventListener('submit', submitHandler)
+form.addEventListener('submit', submitHandler)
 getAllPokemon()
+// updatePokemon()
