@@ -37,8 +37,8 @@ function createPokemonCard(poke){
     pokeCard.classList.add('poke-card')
 
     pokeCard.innerHTML = `<div class='pokemon-outline'>
-    <img alt='pokemon cover image'src=${poke.imgURL} class="pokemon-image"/>
     <h1 class='card-name'> ${poke.name}</h1>
+    <img alt='pokemon cover image'src=${poke.imgURL} class="pokemon-image"/>
     <h4 class='stats'>${poke.name}'s Stats</h4>
   <p class='pokemon-health'>${poke.health}HP</p>
   <p class='pokemon-attack'>Attack Power ${poke.attack}</p>

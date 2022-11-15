@@ -16,6 +16,28 @@
 <main>
     
     <form>
+        
+        
+        <input 
+        type="text"
+        placeholder="Paste a pokemon image" 
+        id="img"/>
+        
+        <input 
+        type="number" 
+        class="former"
+        placeholder="100" 
+        id="health"
+        min="50"
+        max="100"
+        length="3"/>
+        
+        <input 
+        type="text" 
+        class="former"
+        placeholder="Pokemon name" 
+        id="name"/>
+        
         <input 
         type="number" 
         placeholder="20-40" 
@@ -23,27 +45,7 @@
         min="20"
         max="40"
         length="2"/>
-
-        <input 
-        type="number" 
-        placeholder="100" 
-        id="health"
-        min="50"
-        max="100"
-        length="3"/>
-        
-
-        <input 
-        type="text" 
-        placeholder="Paste a pokemon image" 
-        id="img"/>
-
-        <input 
-        type="text" 
-        placeholder="Pokemon name" 
-        id="name"/>
         <button>Add Pokemon</button>
-
     </form>
     
     <section id="pokemon-container"></section>
