@@ -18,13 +18,21 @@ app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
 app.get('/api/pokemo', (req, res) =>{
   // let pokemon = require('./db.json')
+  pokemon.pop([12])
+  pokemon.pop([13])
     res.status(200).send(pokemon)
+})
+app.put('api/pokemo/:id', (req, res)=> {
+  const { id } = req.params;
+  const {name, health, attk} = req.body;
+  let pokemonIndex = pokemon.findIndex(poke => poke.id === +id);
+  
+
 })
 
 
-
-const port = process.env.PORT || 3005
+const port = process.env.PORT || 4001
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Partying on port ${port}`)
 })

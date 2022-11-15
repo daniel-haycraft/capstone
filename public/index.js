@@ -1,5 +1,4 @@
 
-
 const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
 
@@ -13,38 +12,40 @@ function submitHandler(e) {
 
     let attack = document.querySelector('#attack')
     let health = document.querySelector('#health')
-    let imageURL = document.querySelector('#img')
+    let imgURL = document.querySelector('#img')
     let name = document.querySelector('#name')
 
     let bodyObj = {
         attack: attack.value,
         health: health.value, 
-        imageURL: imageURL.value,
+        imgURL: imageURL.value,
         name: name.value
     }
 
     createPokemon(bodyObj)
     attack.value = ''
     health.value = ''
-    imageURL.value = ''
     name.value = ''
+    imgURL.value = ''
 }
 
 function createPokemonCard(poke){
-    const pokeCard = document.createElement('div')
+    let pokeCard = document.createElement('div')
     pokeCard.classList.add('poke-card')
 
     pokeCard.innerHTML = `<div class='pokemon-outline'>
-    <img alt='pokemon cover image'src=${poke.imageURL} class="pokemon-image"/>
-    <div class='pokemon-stats'>
+    <img alt='pokemon cover image'src=${poke.imgURL} class="pokemon-image"/>
     <h2 class='name'> ${poke.name}</h1>
-    <h3 class='pokemon-health'>Health ${poke.health}</h3>
-    <h3 class='pokemon-attack'>Attack Power ${poke.attack}</h3>
-    </div>
+  <h5 class='pokemon-health'>HP ${poke.health}</h5>
+  <h5 class='pokemon-attack'> Attk ${poke.attack}</h5>
+  </div>
+  <div onclick="deletePokeman"(${poke.id})></div>
+    
     `
 
     pokemonContainer.appendChild(pokeCard)
 }
+
 
 
 
