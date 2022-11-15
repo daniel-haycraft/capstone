@@ -1,8 +1,3 @@
-// const { default: axios } = require("axios")
-
-// const { default: axios } = require("axios")
-
-// const { query } = require("express")
 
 
 const form = document.querySelector('form')
@@ -11,9 +6,8 @@ const pokemonContainer = document.querySelector('#pokemon-container')
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
 const errCb = err => console.log(err)
-
-const getAllPokemon = () => axios.get(baseUrl).then(pokemonCallback).catch(errCb)
-
+const getAllPokemon = () => axios.get("/api/pokemo").then(pokemonCallback).catch(errCb)
+// const addPokemon = () => axios.post({})
 function submitHandler(e) {
     e.preventDefault()
 
@@ -41,7 +35,7 @@ function createPokemonCard(poke){
     pokeCard.classList.add('poke-card')
 
     pokeCard.innerHTML = `<div class='pokemon-outline'>
-    <img src=${poke.imageURL} class='pokemon-image'/>
+    <img alt='pokemon cover image'src=${poke.imageURL} class="pokemon-image"/>
     <div class='pokemon-stats'>
     <h2 class='name'> ${poke.name}</h1>
     <h3 class='pokemon-health'>Health ${poke.health}</h3>
@@ -61,5 +55,5 @@ function displayPokemon(arr){
         }
 }
 
-form.addEventListener('submit', submitHandler)
+// form.addEventListener('submit', submitHandler)
 getAllPokemon()

@@ -1,3 +1,4 @@
+const pokemon = require('./db.json')
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
@@ -13,11 +14,9 @@ app.use('/js', express.static(path.join(__dirname, '../public/index.js')));
 // this one servers the styles portion
 app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
-const pokemon = require('./db.json')
 
 
 app.get('/api/pokemo', (req, res) =>{
-  const {name, imgURL, health, attack } = pokemon
   // let pokemon = require('./db.json')
     res.status(200).send(pokemon)
 })
