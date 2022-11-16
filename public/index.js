@@ -1,7 +1,7 @@
 
 const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
-
+const yourPokemon = document.getElementById('your-pokemon')
 
 
 let baseUrl = `/api/pokemo`
@@ -10,6 +10,7 @@ const errCb = err => console.log(err)
 const getAllPokemon = () => axios.get(baseUrl).then(pokemonCallback).catch(errCb)
 // const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
 const createPokemon = body => axios.post(baseUrl, body).then(pokemonCallback).catch(errCb)
+
 function submitHandler(e) {
     e.preventDefault()
 
@@ -44,9 +45,9 @@ function createPokemonCard(poke){
   <p class='pokemon-attack'>Attack Power ${poke.attack}</p>
   </div> 
     `
-
     pokemonContainer.appendChild(pokeCard)
 }
+
 
 
 
@@ -57,7 +58,6 @@ function displayPokemon(arr){
             createPokemonCard(arr[i])
         }
 }
-
 form.addEventListener('submit', submitHandler)
 getAllPokemon()
 // updatePokemon()

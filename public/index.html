@@ -13,14 +13,15 @@
     <header>
         <h1 id="gotta" >GOTTA CATCH 'EM ALL</h1>
     </header>
-<main>
-    
-    <form>
+    <h2>Choose Your Character!</h2>
+    <main>
         
-        
+        <section id="pokemon-container"></section>
+        <section id="your-pokemon"></section>
+        <form>
         <input 
         type="text"
-        placeholder="Paste a pokemon image" 
+        placeholder="Paste an image" 
         id="img"/>
         
         <input 
@@ -28,9 +29,10 @@
         class="former"
         placeholder="100" 
         id="health"
+        maxlength="3"
         min="50"
         max="100"
-        length="3"/>
+        />
         
         <input 
         type="text" 
@@ -44,11 +46,10 @@
         id="attack"
         min="20"
         max="40"
-        length="2"/>
+        maxlength="2"/>
         <button>Add Pokemon</button>
     </form>
     
-    <section id="pokemon-container"></section>
     
 </main>
 
