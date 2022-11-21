@@ -3,9 +3,18 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
+const multer = require('multer')
 
 app.use(cors())
 app.use(express.json())
+
+// const upload = multer({
+//   dest: 'images'
+//   })
+
+// app.post('/upload', upload.single('upload'), (req, res) => {
+//     res.send()
+// })
 
 app.use(express.static(path.join(__dirname, '../public')));
 // app.use('/', express.static(path.join(__dirname, '/public')));
@@ -37,7 +46,7 @@ app.get('/api/pokemo', (req, res) =>{
 
 //   })
 app.post('/api/pokemo', (req, res)=> {
-  const {name, health, attack, imgURL, id} = req.body;
+  const {name, health, attack, imgUrl,id} = req.body;
   pokemon.push({
     name,
     health,
@@ -48,7 +57,8 @@ app.post('/api/pokemo', (req, res)=> {
     id++
   res.status(200).send(pokemon)
 })
-
+// console.log(pokemon[0])
+// pokemon[0].push('')
 
 const port = process.env.PORT || 4001
 

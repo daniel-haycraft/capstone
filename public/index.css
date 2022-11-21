@@ -6,6 +6,7 @@
 }
 body{
     background-color: snow;
+    
 }
 header {
   font-family: 'Pokemon Solid', sans-serif;
@@ -30,6 +31,7 @@ form{
 }
 
 .pokemon-image{
+  background-image: none;
   width: 100px; 
   height: 100px;
   border-radius: 20px;
