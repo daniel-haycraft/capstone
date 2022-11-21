@@ -1,97 +1,83 @@
 [
     {
-        "id": 0,
         "name": "Bulbasaur",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/bulbasaur.avif",
         "attack": 39,
         "health": 100
     },
     {
-        "id": 1,
         "name": "Charmander",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/charmander.avif",
         "attack": 32,
         "health": 100
     },
     {
-        "id": 2,
         "name": "Froakie",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/froakie.avif",
         "attack": 26,
         "health": 100
     },
     {
-        "id": 3,
         "name": "Umbreon",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/umbreon.avif",
         "attack": 21,
         "health": 100
     },
     {
-        "id": 4,
         "name": "Pikachu",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/pikachu.avif",
         "attack": 24,
         "health": 100
     },
     {
-        "id": 5,
         "name": "Poliwhirl",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/poliwhirl.avif",
         "attack": 27,
         "health": 100
     },
     {
-        "id": 6,
         "name": "Scyther",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/scyther.avif",
         "attack": 34,
         "health": 100
     },
     {
-        "id": 7,
         "name": "Sharpedo",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/sharpedo.avif",
         "attack": 33,
         "health": 100
     },
     {
-        "id": 8,
         "name": "Sneasel",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/sneasel.avif",
         "attack": 35,
         "health": 100
     },
     {
-        "id": 9,
         "name": "Squirtle",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/squirtle.avif",
         "attack": 30,
         "health": 100
     },
     {
-        "id": 10,
         "name": "Totodile",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/totodile.avif",
         "attack": 28,
         "health": 100
     },
     {
-        "id": 11,
         "name": "Greninja",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/greninja.avif",
         "attack": 33,
         "health": 100
     },
     {
-        "id": 12,
         "name": "Rayquaza",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/rayquaza.avif",
         "attack": 16,
         "health": 250
     },
     {
-        "id": 13,
         "name": "Metagross",
         "imgURL": "https://img.pokemondb.net/sprites/home/normal/2x/avif/metagross.avif",
         "attack": 18,

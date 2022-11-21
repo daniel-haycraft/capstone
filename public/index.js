@@ -1,15 +1,14 @@
 
 const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
-const yourPokemon = document.getElementById('your-pokemon')
 
 
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
 const errCb = err => console.log(err)
-const getAllPokemon = () => axios.get(baseUrl).then(pokemonCallback).catch(errCb)
-// const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
+const getAllPokemon = () => axios.get(`${baseUrl}`).then(pokemonCallback).catch(errCb)
 const createPokemon = body => axios.post(baseUrl, body).then(pokemonCallback).catch(errCb)
+// const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
 
 function submitHandler(e) {
     e.preventDefault()
@@ -29,8 +28,8 @@ function submitHandler(e) {
     createPokemon(bodyObj)
     attack.value = ''
     health.value = ''
-    name.value = ''
     imgURL.value = ''
+    name.value = ''
 }
 
 function createPokemonCard(poke){
@@ -46,18 +45,18 @@ function createPokemonCard(poke){
   </div> 
     `
     pokemonContainer.appendChild(pokeCard)
+    // pokemonContainer.appendChild(form)
 }
-
-
-
 
 
 function displayPokemon(arr){
     pokemonContainer.innerHTML = ``
-        for(let i= 0; arr.length > i; i++ ){
+        for(let i= 0; arr.length > i; i++){
             createPokemonCard(arr[i])
         }
 }
 form.addEventListener('submit', submitHandler)
 getAllPokemon()
+
+
 // updatePokemon()

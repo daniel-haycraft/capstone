@@ -1,12 +1,14 @@
 const pokemon = require('./db.json')
+const pokemonId = 13
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-const multer = require('multer')
+// const multer = require('multer')
 
-app.use(cors())
 app.use(express.json())
+app.use(cors())
+
 
 // const upload = multer({
 //   dest: 'images'
@@ -17,7 +19,7 @@ app.use(express.json())
 // })
 
 app.use(express.static(path.join(__dirname, '../public')));
-// app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', express.static(path.join(__dirname, '/public')));
 // this one serves the js portion
 app.use('/js', express.static(path.join(__dirname, '../public/index.js')));
 // this one servers the styles portion
@@ -25,10 +27,8 @@ app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
 
 
-app.get('/api/pokemo', (req, res) =>{
-  // let pokemon = require('./db.json')
- 
-    res.status(200).send(pokemon)
+app.get('/api/pokemo', (req, res) => {
+  res.status(200).send(pokemon);
 })
 
 
@@ -46,19 +46,32 @@ app.get('/api/pokemo', (req, res) =>{
 
 //   })
 app.post('/api/pokemo', (req, res)=> {
-  const {name, health, attack, imgUrl,id} = req.body;
+  const { name, health, attack, imgURL } = req.body;
   pokemon.push({
     name,
     health,
     attack,
     imgURL,
-    id
+    id: pokemonId
     });
-    id++
-  res.status(200).send(pokemon)
+    pokemonId++
+  res.status(200).send(pokemon);
 })
 // console.log(pokemon[0])
 // pokemon[0].push('')
+// my next design i need accomplish is selecting pokemon and pushing them in to a battle array
+app.get('/api/pokemo', (req, res) => {
+  let chosen = []
+  for (let i = 0; pokemon.length > i; i++ ){
+    if(chosen[i] > 1){
+    chosen.push(pokemon)
+    } else {
+      res.sendStatus(400)
+    }
+  }
+  res.status(200).send(chosen)
+})
+
 
 const port = process.env.PORT || 4001
 
