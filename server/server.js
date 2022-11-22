@@ -60,17 +60,7 @@ app.post('/api/pokemo', (req, res)=> {
 // console.log(pokemon[0])
 // pokemon[0].push('')
 // my next design i need accomplish is selecting pokemon and pushing them in to a battle array
-app.get('/api/pokemo', (req, res) => {
-  let chosen = []
-  for (let i = 0; pokemon.length > i; i++ ){
-    if(chosen[i] > 1){
-    chosen.push(pokemon)
-    } else {
-      res.sendStatus(400)
-    }
-  }
-  res.status(200).send(chosen)
-})
+
 
 
 const port = process.env.PORT || 4001

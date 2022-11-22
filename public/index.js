@@ -1,7 +1,7 @@
 
 const form = document.querySelector('form')
 const pokemonContainer = document.querySelector('#pokemon-container')
-
+const chosen = document.querySelector('#chosen')
 
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
@@ -9,6 +9,7 @@ const errCb = err => console.log(err)
 const getAllPokemon = () => axios.get(`${baseUrl}`).then(pokemonCallback).catch(errCb)
 const createPokemon = body => axios.post(baseUrl, body).then(pokemonCallback).catch(errCb)
 // const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
+
 
 function submitHandler(e) {
     e.preventDefault()
@@ -45,7 +46,8 @@ function createPokemonCard(poke){
   </div> 
     `
     pokemonContainer.appendChild(pokeCard)
-    // pokemonContainer.appendChild(form)
+    pokemonContainer.appendChild(form)
+    
 }
 
 
@@ -54,7 +56,18 @@ function displayPokemon(arr){
         for(let i= 0; arr.length > i; i++){
             createPokemonCard(arr[i])
         }
+
 }
+// Make a empty array choices []
+/*
+create a new place to put your choices
+container.html = `` you can copy and past the outline already created but the name has to be different
+then append it to the new container you just created
+*/
+
+
+
+
 form.addEventListener('submit', submitHandler)
 getAllPokemon()
 
