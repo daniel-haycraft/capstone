@@ -48,6 +48,12 @@ function createPokemonCard(poke){
     pokemonContainer.appendChild(pokeCard)
     pokemonContainer.appendChild(form)
     
+    const img = document.querySelector('.pokemon-image')
+    img.addEventListener('click', () =>{
+        alert('hi')
+    })
+
+    
 }
 
 
@@ -55,8 +61,8 @@ function displayPokemon(arr){
     pokemonContainer.innerHTML = ``
         for(let i= 0; arr.length > i; i++){
             createPokemonCard(arr[i])
+            
         }
-
 }
 // Make a empty array choices []
 /*
