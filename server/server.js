@@ -1,5 +1,5 @@
 const pokemon = require('./db.json')
-const pokemonId = 13
+let pokemonId = 13
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
@@ -28,7 +28,12 @@ app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
 
 app.get('/api/pokemo', (req, res) => {
-  res.status(200).send(pokemon);
+  res.status(200).send(pokemon)
+})
+
+app.get('/api/get', (req, res) => {
+  let allPoke = pokemon
+  res.status(200).send(allPoke)
 })
 
 
@@ -52,11 +57,24 @@ app.post('/api/pokemo', (req, res)=> {
     health,
     attack,
     imgURL,
-    id: pokemonId
+    id
     });
-    pokemonId++
+    id++
   res.status(200).send(pokemon);
 })
+// app.delete('/api/pokemo/:id', (req, res) => {
+
+//   for (let i = 0; pokemon.length > i; i++){
+//     const { id } = req.body
+//       if(pokemon[i].id === id){
+//          pokemon.splice(i, 1)
+//          res.status(200).send(pokemon)
+//       } else {
+//         return sendStatus(400)
+//       }
+
+//   }
+// })
 // console.log(pokemon[0])
 // pokemon[0].push('')
 // my next design i need accomplish is selecting pokemon and pushing them in to a battle array
