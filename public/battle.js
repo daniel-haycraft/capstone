@@ -1,4 +1,9 @@
 //const battleButton = document.getElementById 
+const battleButton = document.createElement('button')
+battleButton.textContent = 'hi'
+
+const section = document.createElement('section')
+section.innerHTML = '<p>working</p>'
 let dummyData = [
     {
         name: 'charmander',
@@ -36,15 +41,12 @@ function battleMode(el){
     // console.log(`${yourPokemon[0].health}`)
     // health.textcontent = ${dummyData[0].health} soo it can be displayed :)
     //vice versa
-    let battles = [userAttack, compAttack]
     for (let i = 0; battles.length > i; i++){
-        if (battles[i] <= 0 && `${yourPokemon[0].health}` > `${computer[0].health}`){
+        if (battles[i] <= 0 && yourPokemon[0].health > computer[0].health){
              return yourPokemon
         } else if(battles[i] <= 0 && `${yourPokemon[0].health}` < `${computer[0].health}`){ 
             return computer
-        } else{
-            continue
-        }
+        } 
     }
 }
 // ^^ becuase you can click the button multiple times until it hits zero
@@ -65,7 +67,7 @@ console.log(battleMode(dummyData[0]))
 console.log(battleMode(dummyData[0]))
 console.log(battleMode(dummyData[0]))
 console.log(battleMode(dummyData[0]))
-console.log(battleMode(dummyData[0]))
+console.log(battleMode(dummyData[0])) 
 
 
 

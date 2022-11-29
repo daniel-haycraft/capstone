@@ -12,48 +12,55 @@
         <h1 id="gotta" >GOTTA CATCH 'EM ALL</h1>
     </header>
     <main>
-        <h2>Choose Your Character!</h2>
         <button id="reset"> Refresh </button>
-        <section id="your-pokemon"></section>
-        <section id="pokemon-container"></section>
+        <!-- <p id="yours" hidden> Your Pokemon! </p> -->
+        <section id="your-pokemon" ></section>
+        <!-- <p id="vs" hidden>VS </p> -->
+        <!-- <p id="computer" hidden> Computer's Pokemon</p> -->
+        <section id="comp-pokemon">  </section>
+
         <section id="create-a-pokemon"></section>
         <form>
             Create Your Own!
-        <input 
-        type="text" 
-        class="former"
-        placeholder="Name" 
-        id="name"/>
-
-        <input 
-        type="text"
-        placeholder="Poke Url" 
-        id="img"/>
+            <input 
+            type="text" 
+            class="former"
+            placeholder="Name" 
+            id="name"/>
+            
+            <input 
+            type="text"
+            placeholder="Poke Url" 
+            id="img"/>
+            
+            <input 
+            type="number" 
+            class="former"
+            placeholder="100" 
+            id="health"
+            maxlength="3"
+            min="50"
+            max="100"
+            />
+            
+            <input 
+            type="number" 
+            placeholder="20-40" 
+            id="attack"
+            min="20"
+            max="40"
+            maxlength="2"/>
+            <button>Add Pokemon</button>
+        </form>
+        <section id="pokemon-container">
+            <h1>Choose Your Character!</h1>
+        </section>
         
-        <input 
-        type="number" 
-        class="former"
-        placeholder="100" 
-        id="health"
-        maxlength="3"
-        min="50"
-        max="100"
-        />
         
-        <input 
-        type="number" 
-        placeholder="20-40" 
-        id="attack"
-        min="20"
-        max="40"
-        maxlength="2"/>
-        <button>Add Pokemon</button>
-    </form>
+    </main>
+   
     
-    
-</main>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/js" ></script>
+    <script src="/js"></script>
 </body>
 </html>

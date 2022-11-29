@@ -20,8 +20,12 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', express.static(path.join(__dirname, '/public')));
+
+
 // this one serves the js portion
 app.use('/js', express.static(path.join(__dirname, '../public/index.js')));
+app.use('/js', express.static(path.join(__dirname, '../public/battle.js')));
+
 // this one servers the styles portion
 app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
 
