@@ -22,7 +22,7 @@ async function myTables(){
     let result = await axios.get("/api/get/")
     allPoke = result.data
 
-    // displayPokemon(allPoke)
+    displayPokemon(allPoke)
 }
 myTables()
 
@@ -32,7 +32,6 @@ function reset() {
     battler = []
     playersPoke = []
     myTables()
-    displayPokemon(allPoke)
 }
 
 function submitHandler(e) {
@@ -139,7 +138,7 @@ let pokeCard = document.createElement('div')
     <h1 class='card-name' > ${ra.name}</h1>
     <img alt='pokemon cover image'src='${ra.imgURL}' class="pokemon-image"/>
     <h4 class='stats'>${ra.name}'s Stats</h4>
-    <p>  <span class='opp-health'>${ra.health} </span><span>HP</span> </p>
+    <p> <span class='opp-health'>${ra.health} </span><span>HP</span> </p>
     <p>Attack Power</p>
   <p class='opp-attack'>${ra.attack}</p>
   </div> 
@@ -161,7 +160,6 @@ function getBack(poke){
     //i could add more function ality but i can only have one pokemon for now
 }
 function winner(){
-   
     win.play()
 }
 
@@ -195,7 +193,7 @@ function battleMode(){
         compPoke.innerHTML = ``
         winner()
         battleButton.remove()
-        addEventListener
+        
     }
     
 }
