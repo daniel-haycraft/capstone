@@ -1,30 +1,28 @@
+
+
 const pokemon = require('./db.json')
 let pokemonId = 13
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
+const { raw } = require('express')
 const app = express()
-// const multer = require('multer')
 
 app.use(express.json())
 app.use(cors())
 
 
-// const upload = multer({
-//   dest: 'images'
-//   })
 
-// app.post('/upload', upload.single('upload'), (req, res) => {
-//     res.send()
-// })
 
 app.use(express.static(path.join(__dirname, '../public')));
-app.use('/', express.static(path.join(__dirname, '/public')));
+// app.use('/', express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '../public/battle')));
+
 
 
 // this one serves the js portion
 app.use('/js', express.static(path.join(__dirname, '../public/index.js')));
-app.use('/js', express.static(path.join(__dirname, '../public/battle.js')));
+app.use('/js', express.static(path.join(__dirname, '../battle/battle.js')));
 
 // this one servers the styles portion
 app.use('/styles', express.static(path.join(__dirname, '../public/index.css')));
@@ -39,7 +37,6 @@ app.get('/api/get', (req, res) => {
   let allPoke = pokemon
   res.status(200).send(allPoke)
 })
-
 
 // app.put('api/pokemo/:id', (req, res)=> {
 //   const { id } = req.params;
@@ -66,6 +63,7 @@ app.post('/api/pokemo', (req, res)=> {
     id++
   res.status(200).send(pokemon);
 })
+
 // app.delete('/api/pokemo/:id', (req, res) => {
 
 //   for (let i = 0; pokemon.length > i; i++){

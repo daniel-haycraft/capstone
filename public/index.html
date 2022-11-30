@@ -8,18 +8,21 @@
     <link rel="stylesheet" href="/styles">
 </head>
 <body>
+    <audio id='win' src="./pokemon.mp3" type="audio/mpeg"></audio>
     <header>
         <h1 id="gotta" >GOTTA CATCH 'EM ALL</h1>
     </header>
     <main>
-        <button id="reset"> Refresh </button>
         <!-- <p id="yours" hidden> Your Pokemon! </p> -->
-        <section id="your-pokemon" ></section>
-        <!-- <p id="vs" hidden>VS </p> -->
-        <!-- <p id="computer" hidden> Computer's Pokemon</p> -->
-        <section id="comp-pokemon">  </section>
+        <section id="battle-section">
+            <section id="your-pokemon" ></section>
+            <section id="comp-pokemon"></section>
+        </section>
 
-        <section id="create-a-pokemon"></section>
+    <header id="character">Choose Your Character!</header>
+    <section id="pokemon-container">
+        </section>
+        <section id="create-a-pokemon">
         <form>
             Create Your Own!
             <input 
@@ -52,9 +55,7 @@
             maxlength="2"/>
             <button>Add Pokemon</button>
         </form>
-        <section id="pokemon-container">
-            <h1>Choose Your Character!</h1>
-        </section>
+    </section>
         
         
     </main>
