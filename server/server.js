@@ -1,7 +1,7 @@
 
 
 const pokemon = require('./db.json')
-let pokemonId = 13
+
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
@@ -37,7 +37,7 @@ app.get('/api/get', (req, res) => {
 
 
 app.post('/api/pokemo', (req, res)=> {
-  const { name, health, attack, imgURL } = req.body;
+  const { name, health, attack, imgURL, id } = req.body;
   pokemon.push({
     name,
     health,
@@ -45,7 +45,7 @@ app.post('/api/pokemo', (req, res)=> {
     imgURL,
     id
     });
-    id++
+   
   res.status(200).send(pokemon);
 })
 

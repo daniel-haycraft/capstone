@@ -13,17 +13,19 @@
         <h1 id="gotta" >GOTTA CATCH 'EM ALL</h1>
     </header>
     <main>
-        <!-- <p id="yours" hidden> Your Pokemon! </p> -->
-        <section id="battle-section">
+        
+        <section id="battle-section" >
             <section id="your-pokemon" ></section>
+            <button id="battles" onclick="battleMode()"> Battle Mode </button>
+            <h1 id="vs" hidden>VS </h1>
+            <button id='refreshes' onclick="reset()" > Go Again</button>
             <section id="comp-pokemon"></section>
         </section>
 
     <header id="character">Choose Your Character!</header>
-    <section id="pokemon-container">
-        </section>
+    <section id="pokemon-container"></section>
         <section id="create-a-pokemon">
-        <form>
+        <form class="">
             Create Your Own!
             <input 
             type="text" 

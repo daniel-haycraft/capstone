@@ -6,13 +6,17 @@ const compPoke = document.getElementById('comp-pokemon')
 const win = document.getElementById('win')
 win.volume = .1
 const battleSection = document.getElementById('battle-section')
-// const  = document.getElementById('')
+const character = document.getElementById('character')
+const refreshBtn = document.getElementById('refreshes')
+const battlesBtn = document.getElementById('battles')
+const vs = document.getElementById('vs')
+
 
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
-const errCb = err => console.log(err)
+const errCb = error => console.log(error)
 const getAllPokemon = () => axios.get(`${baseUrl}`).then(pokemonCallback).catch(errCb)
-const createPokemon = body => axios.post(baseUrl, body).then(pokemonCallback).catch(errCb)
+const createPokemon = body => axios.post(`${baseUrl}`, body).then(pokemonCallback).catch(errCb)
 // const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
 let allPoke = []
 let battler = []
@@ -100,16 +104,14 @@ function choosenCard(poke){
     
     pokeCard.innerHTML = `
     <div class="pokemon-outline" >
-    <p>Your Pokemon: </p>
     <h1 class='card-name' > ${poke.name}</h1>
     <img alt='pokemon cover image'src='${poke.imgURL}' class="pokemon-image"/>
     <h4 class='stats'>${poke.name}'s Stats</h4>
     <p>  <span class='pokemon-health'>${poke.health} </span><span>HP</span> </p>
     <p>Attack Power</p>
     <p class='pokemon-attack'> ${poke.attack} </p>
-    <button id='refreshes' class="hidden" onclick="reset()"> Go Again</button>
-    <button id='battles' class="battle" onclick="battleMode()"> Battle Mode </button>
     </div> 
+    
     `
     //   <button class="attack!" onclick="location.href = './battle.html';">Attack Mode</button>
     
@@ -134,7 +136,6 @@ let pokeCard = document.createElement('div')
     
     pokeCard.innerHTML = `
     <div class="pokemon-outline"> 
-    <p>Your Opponent: </p>
     <h1 class='card-name' > ${ra.name}</h1>
     <img alt='pokemon cover image'src='${ra.imgURL}' class="pokemon-image"/>
     <h4 class='stats'>${ra.name}'s Stats</h4>
@@ -161,6 +162,9 @@ function getBack(poke){
 }
 function winner(){
     win.play()
+    character.textContent = `Winner Winner Chicken Dinner`
+    displayPokemon(playersPoke)
+
 }
 
 function displayPokemon(arr){
@@ -179,7 +183,7 @@ function battleMode(){
     let myAttack = document.querySelector('.pokemon-attack')
     let battleButton = document.getElementById('battles')
     let pokeCard = document.querySelector('.poke-card')
-
+    
 
     let userAttack = battler[0].health -= playersPoke[0].attack
     oppHealth.textContent = userAttack
@@ -189,11 +193,13 @@ function battleMode(){
 
     if(compAttack <= 0 && compAttack < userAttack){
         yourPoke.innerHTML = ``
+        vs.innerHTML=``
+        oppHealth.textContent = 100
     } else if (userAttack <= 0 && compAttack > userAttack){
+        myHealth.textContent = 100
         compPoke.innerHTML = ``
-        winner()
-        battleButton.remove()
         
+        winner()
     }
     
 }

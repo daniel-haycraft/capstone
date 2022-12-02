@@ -1,5 +1,12 @@
 
-
+body{
+  background-color: #272727;
+  /* background-image: url(https://lh3.googleusercontent.com/t9jFWrmfUkhW2laGQzT_n-pMvAo-Ip24uJf7TVqCZpaahXQtiGzsdGekahJF5tyOSmHg41iPBNXis3s3qdfmnfVcnmBQLs8UOtiwnf-PY16W=e365-pa-nu-w646-rw); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  image-rendering:optimizeQuality;
+}
 header, h2{
   font-family: 'Pokemon Solid', sans-serif;
     height: 80px; 
@@ -11,16 +18,11 @@ header, h2{
 }
 
  * {
+  
     margin: 0;
     padding: 0;
     font-size: xx-large;
     zoom: 100%;
-}
-
-.pokemon-image {
-  width: 200px; 
-  height: 220px;
-  border-radius: 20px;
 }
 
 #pokemon-container {
@@ -28,6 +30,7 @@ header, h2{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
 }
 
 
@@ -35,8 +38,9 @@ header, h2{
 .pokemon-outline{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background-image: url(https://lh3.googleusercontent.com/t9jFWrmfUkhW2laGQzT_n-pMvAo-Ip24uJf7TVqCZpaahXQtiGzsdGekahJF5tyOSmHg41iPBNXis3s3qdfmnfVcnmBQLs8UOtiwnf-PY16W=e365-pa-nu-w646-rw);
- background-repeat: round;
- height: auto;
+  background-repeat: round;
+  
+  height: auto;
   width: 250px;
   margin: 20px; 
   display: flex;
@@ -50,6 +54,12 @@ header, h2{
   zoom: 100%;
   
 }
+
+.pokemon-image {
+  width: 200px; 
+  height: 220px;
+  border-radius: 20px;
+}
 #create-a-pokemon{
   margin: auto;
   width: 50%;
@@ -57,10 +67,12 @@ header, h2{
 
 form{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+  text-decoration: double;
   top: 0px;
   left: 0px;
-  background-color: rgb(144, 224, 64);
+  /* background-color: rgb(144, 224, 64); */
+  background-image: url(https://lh3.googleusercontent.com/t9jFWrmfUkhW2laGQzT_n-pMvAo-Ip24uJf7TVqCZpaahXQtiGzsdGekahJF5tyOSmHg41iPBNXis3s3qdfmnfVcnmBQLs8UOtiwnf-PY16W=e365-pa-nu-w646-rw);
+  background-repeat: round;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -75,12 +87,11 @@ form{
 }
 form input{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
+  color: aliceblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* padding: 50px 40px; */
-  color: white;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
@@ -98,8 +109,7 @@ form input{
 
 button {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-  background-color: #c2fbd7;
+  /* background-color: #272727; */
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
   color: green;
@@ -117,6 +127,7 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 50px;
 }
 
 button:hover {
@@ -132,9 +143,33 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-bottom: 10px;
+
+}
+#your-pokemon{
+  
+    color: ghostwhite;
+
+}
+#comp-pokemon{
+  color: red;
+}
+#refreshes{
+  height: 60px;
+  width: 100px;
+}
+#battles{
+  height: 60px;
+  width: 100px;
   
 }
 
+ #vs {
+  position: relative;
+  top: 200px;
+  justify-content: center;
+  color: red;
+  font-family: 'Pokemon Solid', sans-serif;
 
-
-  
+  text-shadow: solid black;
+}
