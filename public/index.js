@@ -4,12 +4,17 @@ const pokemonContainer = document.querySelector('#pokemon-container')
 const yourPoke = document.getElementById('your-pokemon')
 const compPoke = document.getElementById('comp-pokemon')
 const win = document.getElementById('win')
-win.volume = .1
+win.volume = .01
 const battleSection = document.getElementById('battle-section')
 const character = document.getElementById('character')
 const refreshBtn = document.getElementById('refreshes')
 const battlesBtn = document.getElementById('battles')
 const vs = document.getElementById('vs')
+
+const bh = document.getElementById('bh')
+// this is the div connected to the battle button so i could correctly hide it
+const rh = document.getElementById('rh')
+// same thing with this one ^^
 
 
 let baseUrl = `/api/pokemo`
@@ -31,6 +36,9 @@ async function myTables(){
 myTables()
 
 function reset() {
+    rh.setAttribute('hidden', 'hidden')
+    bh.setAttribute('hidden', 'hidden')
+    vs.setAttribute('hidden', 'hidden')
     yourPoke.innerHTML = ``
     compPoke.innerHTML = ``
     battler = []
@@ -44,7 +52,7 @@ function submitHandler(e) {
     let attack = document.querySelector('#attack')
     let health = document.querySelector('#health')
     let imgURL = document.querySelector('#img')
-    let name = document.querySelector('#name')
+    let name = document.querySelector('#name');
 
     let bodyObj = {
         attack: attack.value,
@@ -52,7 +60,7 @@ function submitHandler(e) {
         imgURL: imgURL.value,
         name: name.value
     }
-
+    
     createPokemon(bodyObj)
     attack.value = ''
     health.value = ''
@@ -70,7 +78,6 @@ function createPokemonCard(poke){
     })
     
     pokeCard.innerHTML = `<div class='pokemon-outline'>
-    <h1 class='card-name'> ${poke.name}</h1>
     <img alt='pokemon cover image'src= ${poke.imgURL} class="pokemon-image"/>
     <h4 class='stats'>${poke.name}'s Stats</h4>
   <p class='pokemon-health'>${poke.health}HP</p>
@@ -78,10 +85,10 @@ function createPokemonCard(poke){
   </div> 
     `
     pokemonContainer.appendChild(pokeCard)
+    // pokemonContainer.appendChild(form)
+    
     pokemonContainer.appendChild(form)
-    // chosen.appendChild(pokeCard)
 }
-
 
 function choosenCard(poke){
     
@@ -104,18 +111,19 @@ function choosenCard(poke){
     
     pokeCard.innerHTML = `
     <div class="pokemon-outline" >
-    <h1 class='card-name' > ${poke.name}</h1>
     <img alt='pokemon cover image'src='${poke.imgURL}' class="pokemon-image"/>
     <h4 class='stats'>${poke.name}'s Stats</h4>
     <p>  <span class='pokemon-health'>${poke.health} </span><span>HP</span> </p>
     <p>Attack Power</p>
     <p class='pokemon-attack'> ${poke.attack} </p>
     </div> 
-    
     `
     //   <button class="attack!" onclick="location.href = './battle.html';">Attack Mode</button>
     
     displayPokemon(allPoke)
+    vs.removeAttribute('hidden')
+    bh.removeAttribute('hidden')
+    rh.removeAttribute('hidden')
     
     yourPoke.appendChild(pokeCard)
     pokeCard.querySelector('img').addEventListener('click', ()=> {
@@ -124,6 +132,7 @@ function choosenCard(poke){
     
     
     getRandomPokemon(wild)
+
 }
 function getRandomPokemon(ra){
 // RA === RANDOM :)
@@ -136,7 +145,6 @@ let pokeCard = document.createElement('div')
     
     pokeCard.innerHTML = `
     <div class="pokemon-outline"> 
-    <h1 class='card-name' > ${ra.name}</h1>
     <img alt='pokemon cover image'src='${ra.imgURL}' class="pokemon-image"/>
     <h4 class='stats'>${ra.name}'s Stats</h4>
     <p> <span class='opp-health'>${ra.health} </span><span>HP</span> </p>
@@ -158,12 +166,20 @@ function getBack(poke){
     playersPoke.splice(index, 1)
     battler.splice(index, 1)
     displayPokemon(allPoke)
+    rh.setAttribute('hidden', 'hidden')
+    bh.setAttribute('hidden', 'hidden')
+    vs.setAttribute('hidden', 'hidden')
     //i could add more function ality but i can only have one pokemon for now
 }
 function winner(){
     win.play()
     character.textContent = `Winner Winner Chicken Dinner`
     displayPokemon(playersPoke)
+    bh.setAttribute('hidden', 'hidden')
+    vs.setAttribute('hidden', 'hidden')
+    form.remove()
+    let myHealth = document.querySelector('.pokemon-health')
+    myHealth.textContent
 
 }
 
@@ -193,12 +209,12 @@ function battleMode(){
 
     if(compAttack <= 0 && compAttack < userAttack){
         yourPoke.innerHTML = ``
-        vs.innerHTML=``
-        oppHealth.textContent = 100
+        battler[0].health = 100
+        vs.setAttribute('hidden', 'hidden')
+        bh.setAttribute('hidden', 'hidden')
     } else if (userAttack <= 0 && compAttack > userAttack){
-        myHealth.textContent = 100
         compPoke.innerHTML = ``
-        
+        playersPoke[0].health = 100
         winner()
     }
     
