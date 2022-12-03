@@ -3,7 +3,8 @@
         "id": 0,
         "name": "Bulbasaur",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSazUoAAOfbY?format=png&name=240x240",
-        "health": 100
+        "health": 100,
+        "attack": 39
     },
     {
         "id": 1,

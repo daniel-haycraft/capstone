@@ -4,7 +4,7 @@ const pokemonContainer = document.querySelector('#pokemon-container')
 const yourPoke = document.getElementById('your-pokemon')
 const compPoke = document.getElementById('comp-pokemon')
 const win = document.getElementById('win')
-win.volume = .01
+win.volume = .02
 const battleSection = document.getElementById('battle-section')
 const character = document.getElementById('character')
 const refreshBtn = document.getElementById('refreshes')
@@ -15,7 +15,13 @@ const bh = document.getElementById('bh')
 // this is the div connected to the battle button so i could correctly hide it
 const rh = document.getElementById('rh')
 // same thing with this one ^^
-
+const compDiv = document.getElementById('compDiv')
+let one = document.getElementById('ball-one')
+let two = document.getElementById('ball-two')
+let three = document.getElementById('ball-three')
+let four = document.getElementById('ball-four')
+let hiddenPokeball = document.getElementById('hidden-pokeball')
+let hiddenChars = document.getElementById('hidden-chars')
 
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
@@ -26,7 +32,8 @@ const createPokemon = body => axios.post(`${baseUrl}`, body).then(pokemonCallbac
 let allPoke = []
 let battler = []
 let playersPoke = []
-
+let wins = 0
+let losses = 0
 async function myTables(){
     let result = await axios.get("/api/get/")
     allPoke = result.data
@@ -36,9 +43,15 @@ async function myTables(){
 myTables()
 
 function reset() {
+    
     rh.setAttribute('hidden', 'hidden')
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
+    compDiv.setAttribute('hidden', 'hidden')
+    hiddenChars.removeAttribute('hidden')
+    character.textContent = 'Choose Your Character'
+    win.pause();
+    win.currentTime = 0;
     yourPoke.innerHTML = ``
     compPoke.innerHTML = ``
     battler = []
@@ -66,6 +79,7 @@ function submitHandler(e) {
     health.value = ''
     imgURL.value = ''
     name.value = ''
+    allPoke.push(bodyObj)
 }
 
 function createPokemonCard(poke){
@@ -91,7 +105,6 @@ function createPokemonCard(poke){
 }
 
 function choosenCard(poke){
-    
     if(playersPoke.length === 1){
         return alert("don't be so greedy")
     }
@@ -100,14 +113,10 @@ function choosenCard(poke){
     allPoke.splice(index, 1)
     let wild = allPoke[Math.floor(Math.random()*allPoke.length)]
   
-    
-    
     ///////////////////////////////////////////
 
     let pokeCard = document.createElement('div')
     pokeCard.classList.add('poke-card')
-    
-        
     
     pokeCard.innerHTML = `
     <div class="pokemon-outline" >
@@ -124,15 +133,15 @@ function choosenCard(poke){
     vs.removeAttribute('hidden')
     bh.removeAttribute('hidden')
     rh.removeAttribute('hidden')
+    hiddenChars.setAttribute('hidden', 'hidden')
     
     yourPoke.appendChild(pokeCard)
     pokeCard.querySelector('img').addEventListener('click', ()=> {
         getBack(poke)
     })
-    
-    
     getRandomPokemon(wild)
-
+    rh.setAttribute('hidden', 'hidden')
+    hiddenPokeball.removeAttribute('hidden')
 }
 function getRandomPokemon(ra){
 // RA === RANDOM :)
@@ -169,17 +178,28 @@ function getBack(poke){
     rh.setAttribute('hidden', 'hidden')
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
+    hiddenChars.removeAttribute('hidden')
     //i could add more function ality but i can only have one pokemon for now
 }
 function winner(){
     win.play()
     character.textContent = `Winner Winner Chicken Dinner`
-    displayPokemon(playersPoke)
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
+    rh.removeAttribute('hidden')
     form.remove()
     let myHealth = document.querySelector('.pokemon-health')
-    myHealth.textContent
+    myHealth.textContent = 100
+        if (wins === 1){
+        return one.style.opacity = "0.4"
+      }  else if(wins === 2){
+          return two.style.opacity = "0.4"
+      } else if (wins === 3){
+          return three.style.opacity = "0.4"
+      } else if(wins === 4){
+          four.style.opacity = "0.4"
+         return  alert("you've finished the elite four!")
+      }
 
 }
 
@@ -193,6 +213,8 @@ function displayPokemon(arr){
 
 
 function battleMode(){
+    compDiv.setAttribute('hidden', 'hidden')
+
     let oppHealth = document.querySelector('.opp-health')
     let oppAttack = document.querySelector('.opp-attack')
     let myHealth = document.querySelector('.pokemon-health')
@@ -204,44 +226,48 @@ function battleMode(){
     let userAttack = battler[0].health -= playersPoke[0].attack
     oppHealth.textContent = userAttack
     // updates the health
-    let compAttack = playersPoke[0].health -= battler[0].attack
-    myHealth.textContent = compAttack
-
-    if(compAttack <= 0 && compAttack < userAttack){
-        yourPoke.innerHTML = ``
-        battler[0].health = 100
-        vs.setAttribute('hidden', 'hidden')
-        bh.setAttribute('hidden', 'hidden')
-    } else if (userAttack <= 0 && compAttack > userAttack){
+    // let compAttack = playersPoke[0].health -= battler[0].attack
+    // myHealth.textContent = compAttack
+        if (battler[0].health <= 0 ){
         compPoke.innerHTML = ``
-        playersPoke[0].health = 100
+        wins++
+        console.log(wins)
         winner()
+        } else {
+        compDiv.removeAttribute('hidden', 'hidden')
+        bh.setAttribute('hidden', 'hidden')
     }
-    
 }
+    function compBattle(){
+        let oppHealth = document.querySelector('.opp-health')
+        let myHealth = document.querySelector('.pokemon-health')
+        
+        let compAttack = playersPoke[0].health -= battler[0].attack
+        myHealth.textContent = compAttack
+        
+       
+        if (compAttack <= 0){
+           yourPoke.innerHTML = ``
+           vs.setAttribute('hidden', 'hidden')
+           bh.setAttribute('hidden', 'hidden')
+           compDiv.setAttribute('hidden', 'hidden')
+           rh.removeAttribute('hidden')
+
+
+        } else{
+        // if(playersPoke[0].heatlh <= 0 && battler[0].health > playersPoke[0].health){
+        //     yourPoke.innerHTML = ``
+        //     vs.setAttribute('hidden', 'hidden')
+        //     bh.setAttribute('hidden', 'hidden')
+        // } else {
+            bh.removeAttribute('hidden', 'hidden')
+            compDiv.setAttribute('hidden', 'hidden')
+            
+        }
+    }
 
     
     
-   
-
-
-    //     // console.log(`${computer[0].health}`) working
-    //     let compAttack = yourPokemon[0].health -= computer[0].attack
-    //     // compAttack = `${yourPokemon[0].health}`
-    //     // userAttack = `${computer[0].health}`
-    //     // console.log(`${yourPokemon[0].health}`)
-    //     // health.textcontent = ${dummyData[0].health} soo it can be displayed :)
-    //     //vice versa
-    //     for (let i = 0; battles.length > i; i++){
-    //         if (battles[i] <= 0 && yourPokemon[0].health > computer[0].health){
-    //              return yourPokemon
-    //         } else if(battles[i] <= 0 && `${yourPokemon[0].health}` < `${computer[0].health}`){ 
-    //             return computer
-    //         } 
-    //     }
-    // }
-
-
 form.addEventListener('submit', submitHandler)
 getAllPokemon()
 

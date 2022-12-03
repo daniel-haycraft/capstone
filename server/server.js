@@ -22,7 +22,7 @@ const {
 app.get('/api/pokemon', getAllPokemon)
 app.get('/api/get', myTables)
 app.post('/api/pokemo', createPokemon)
-app.get('/api/randomAttack', randomAttackNum)
+// app.get('/api/randomAttack', randomAttackNum)
 
 
 const port = process.env.PORT || 4001

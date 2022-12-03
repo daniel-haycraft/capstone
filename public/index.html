@@ -13,21 +13,27 @@
         <h1 id="gotta" >GOTTA CATCH 'EM ALL</h1>
     </header>
     <main>
-        
+        <section id="pokeball-container">
+          <img id="ball-one" class="pokeball" src="https://pbs.twimg.com/media/FjFB3ENVEAAeTTg?format=png&name=900x900" alt="pokeball">
+          <img id="ball-two" class="pokeball" src="https://pbs.twimg.com/media/FjFB3ENVEAAeTTg?format=png&name=900x900" alt="pokeball">
+          <img id="ball-three" class="pokeball" src="https://pbs.twimg.com/media/FjFB3ENVEAAeTTg?format=png&name=900x900" alt="pokeball">
+          <img id="ball-four" class="pokeball" src="https://pbs.twimg.com/media/FjFB3ENVEAAeTTg?format=png&name=900x900" alt="pokeball">
+         </section>
+        <section id="battle-button">
+            <div hidden id="bh"> <button id="battles" onclick="battleMode()"> Battle Mode </button>  </div>
+            <div hidden id="rh"><button id='refreshes' onclick="reset()" > Go Again</button></div>
+            <div hidden id="compDiv"> <button id="comp-battle" onclick="compBattle()"> Battle Mode </button>  </div>
+        </section>
         <section id="battle-section" >
             <section id="your-pokemon" ></section>
-           
-            <div hidden id="bh"> <button id="battles" onclick="battleMode()"> Battle Mode </button>  </div>
-               
             <h1 id="vs" hidden>VS </h1>
-
-            <div hidden id="rh"><button id='refreshes' onclick="reset()" > Go Again</button></div>
-        
             <section id="comp-pokemon"></section>
         </section>
+        
 
-    <header id="character">Choose Your Character!</header>
-    <section id="pokemon-container"></section>
+        <div id="hidden-chars">
+            <header id="character">Choose Your Character!</header>
+        <section id="pokemon-container"></section>
         <section id="create-a-pokemon">
         <div id="forum"> 
             <form>
@@ -64,6 +70,7 @@
             <button>Add Pokemon</button>
         </form>
     </div>
+</div>
     </section>
         
         

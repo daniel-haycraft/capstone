@@ -21,18 +21,18 @@ const createPokemon = (req, res) => {
     res.status(200).send(pokemon);
 }
 
-const randomAttackNum = (req, res)=>{
-    const { attack } = req.body
-    let min = 30;
-    let  max = 40;
-    let  random = Math.floor(Math.random() * (+max + 1 - +min)) + +min;
-    random = attack
-    res.status(200).send(attack);
-}
+// const randomAttackNum = (req, res)=>{
+//     const { attack } = req.body
+//     let min = 30;
+//     let  max = 40;
+//     let  random = Math.floor(Math.random() * (+max + 1 - +min)) + +min;
+//     random = attack
+//     res.status(200).send(attack);
+// }
 
 module.exports = { 
 getAllPokemon,
 myTables,
 createPokemon,
-randomAttackNum
+// randomAttackNum
 }
