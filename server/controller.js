@@ -1,12 +1,15 @@
 const pokemon = require('./db.json')
 
-let pokemonId = 14 
+let pokemonId = 14
+// legendaries = pokemon.filter(legend => legend.name === 'Rayquaza')
+
+
 const getAllPokemon = (req, res) => {
     res.status(200).send(pokemon)
 }
 const myTables = (req, res) => {
     let allPoke = pokemon
-    res.status(200).send(allPoke)
+     res.status(200).send(allPoke)
 }
 const createPokemon = (req, res) => {
     const { name, health, attack, imgURL } = req.body;
@@ -34,5 +37,4 @@ module.exports = {
 getAllPokemon,
 myTables,
 createPokemon,
-// randomAttackNum
 }

@@ -22,28 +22,28 @@ let three = document.getElementById('ball-three')
 let four = document.getElementById('ball-four')
 let hiddenPokeball = document.getElementById('hidden-pokeball')
 let hiddenChars = document.getElementById('hidden-chars')
-
+const chickenDinner = document.getElementById("chicken-dinner")
 let baseUrl = `/api/pokemo`
 const pokemonCallback = ({ data: pokemon }) => displayPokemon(pokemon)
 const errCb = error => console.log(error)
-const getAllPokemon = () => axios.get(`${baseUrl}`).then(pokemonCallback).catch(errCb)
+// const getAllPokemon = () => axios.get(baseUrl).then(pokemonCallback).catch(errCb)
 const createPokemon = body => axios.post(`${baseUrl}`, body).then(pokemonCallback).catch(errCb)
 // const updatePokemon = (id) => axios.put(`${baseUrl}/${id}`).then(pokemonCallback).catch(errCb)
 let allPoke = []
 let battler = []
 let playersPoke = []
-let wins = 0
+let wins = 3
 let losses = 0
+
 async function myTables(){
     let result = await axios.get("/api/get/")
     allPoke = result.data
-
     displayPokemon(allPoke)
-}
+} 
 myTables()
 
-function reset() {
-    
+function reset(){
+    chickenDinner.setAttribute('hidden', 'hidden')
     rh.setAttribute('hidden', 'hidden')
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
@@ -60,8 +60,9 @@ function reset() {
 }
 
 function submitHandler(e) {
+   
     e.preventDefault()
-
+    
     let attack = document.querySelector('#attack')
     let health = document.querySelector('#health')
     let imgURL = document.querySelector('#img')
@@ -80,6 +81,7 @@ function submitHandler(e) {
     imgURL.value = ''
     name.value = ''
     allPoke.push(bodyObj)
+    
 }
 
 function createPokemonCard(poke){
@@ -99,20 +101,20 @@ function createPokemonCard(poke){
   </div> 
     `
     pokemonContainer.appendChild(pokeCard)
-    // pokemonContainer.appendChild(form)
-    
     pokemonContainer.appendChild(form)
+   
+    
 }
 
 function choosenCard(poke){
     if(playersPoke.length === 1){
-        return alert("don't be so greedy")
+         return alert("don't be so greedy")
     }
-    let index = allPoke.findIndex(mons => mons.name === poke.name)
+  let index = allPoke.findIndex(mons => mons.name === poke.name)
     playersPoke.push(allPoke[index])
     allPoke.splice(index, 1)
     let wild = allPoke[Math.floor(Math.random()*allPoke.length)]
-  
+    
     ///////////////////////////////////////////
 
     let pokeCard = document.createElement('div')
@@ -141,8 +143,9 @@ function choosenCard(poke){
     })
     getRandomPokemon(wild)
     rh.setAttribute('hidden', 'hidden')
-    hiddenPokeball.removeAttribute('hidden')
 }
+
+
 function getRandomPokemon(ra){
 // RA === RANDOM :)
     battler.push(ra)
@@ -179,15 +182,15 @@ function getBack(poke){
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
     hiddenChars.removeAttribute('hidden')
+    chickenDinner.setAttribute('hidden', 'hidden')
     //i could add more function ality but i can only have one pokemon for now
 }
 function winner(){
     win.play()
-    character.textContent = `Winner Winner Chicken Dinner`
     bh.setAttribute('hidden', 'hidden')
     vs.setAttribute('hidden', 'hidden')
     rh.removeAttribute('hidden')
-    form.remove()
+    form.setAttribute('hidden', 'hidden')
     let myHealth = document.querySelector('.pokemon-health')
     myHealth.textContent = 100
         if (wins === 1){
@@ -197,8 +200,8 @@ function winner(){
       } else if (wins === 3){
           return three.style.opacity = "0.4"
       } else if(wins === 4){
-          four.style.opacity = "0.4"
-         return  alert("you've finished the elite four!")
+        alert('you have obtained a legendary pokemon!')
+        return four.style.opacity = "0.4"
       }
 
 }
@@ -208,67 +211,50 @@ function displayPokemon(arr){
     yourPoke.innerHTML = ``
         for(let i= 0; arr.length > i; i++){
             createPokemonCard(arr[i]) 
-        }
+        } 
 }
-
 
 function battleMode(){
     compDiv.setAttribute('hidden', 'hidden')
-
-    let oppHealth = document.querySelector('.opp-health')
-    let oppAttack = document.querySelector('.opp-attack')
-    let myHealth = document.querySelector('.pokemon-health')
-    let myAttack = document.querySelector('.pokemon-attack')
-    let battleButton = document.getElementById('battles')
-    let pokeCard = document.querySelector('.poke-card')
     
-
+    let oppHealth = document.querySelector('.opp-health')
     let userAttack = battler[0].health -= playersPoke[0].attack
     oppHealth.textContent = userAttack
-    // updates the health
-    // let compAttack = playersPoke[0].health -= battler[0].attack
-    // myHealth.textContent = compAttack
-        if (battler[0].health <= 0 ){
+    // updates health
+    if (userAttack <= 0 ){
         compPoke.innerHTML = ``
         wins++
-        console.log(wins)
+        chickenDinner.removeAttribute('hidden')
         winner()
-        } else {
+    } else {
         compDiv.removeAttribute('hidden', 'hidden')
         bh.setAttribute('hidden', 'hidden')
     }
 }
-    function compBattle(){
-        let oppHealth = document.querySelector('.opp-health')
-        let myHealth = document.querySelector('.pokemon-health')
+function compBattle(){
+    let myHealth = document.querySelector('.pokemon-health')
+    
+    let compAttack = playersPoke[0].health -= battler[0].attack
+    myHealth.textContent = compAttack
+    
+    
+    if (compAttack <= 0){
+        yourPoke.innerHTML = ``
+        vs.setAttribute('hidden', 'hidden')
+        bh.setAttribute('hidden', 'hidden')
+        compDiv.setAttribute('hidden', 'hidden')
+        rh.removeAttribute('hidden')
         
-        let compAttack = playersPoke[0].health -= battler[0].attack
-        myHealth.textContent = compAttack
         
-       
-        if (compAttack <= 0){
-           yourPoke.innerHTML = ``
-           vs.setAttribute('hidden', 'hidden')
-           bh.setAttribute('hidden', 'hidden')
-           compDiv.setAttribute('hidden', 'hidden')
-           rh.removeAttribute('hidden')
-
-
-        } else{
-        // if(playersPoke[0].heatlh <= 0 && battler[0].health > playersPoke[0].health){
-        //     yourPoke.innerHTML = ``
-        //     vs.setAttribute('hidden', 'hidden')
-        //     bh.setAttribute('hidden', 'hidden')
-        // } else {
-            bh.removeAttribute('hidden', 'hidden')
-            compDiv.setAttribute('hidden', 'hidden')
-            
-        }
+    } else{
+        bh.removeAttribute('hidden', 'hidden')
+        compDiv.setAttribute('hidden', 'hidden')
+        
     }
+}
 
-    
-    
 form.addEventListener('submit', submitHandler)
-getAllPokemon()
+
+// getAllPokemon()
 
 // updatePokemon()

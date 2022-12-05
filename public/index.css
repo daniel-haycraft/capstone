@@ -94,7 +94,8 @@ form input{
   flex-direction: column;
   align-items: center;
   /* padding: 50px 40px; */
-  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  background-color: black;
   border-radius: 10px;
   box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
   0 1px 1px rgba(128, 128, 128, 0.155),
@@ -134,7 +135,7 @@ button {
 
 button:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
+  transform: scale(1.05) rotate(-2deg);
 }
 
 .stats{
@@ -213,5 +214,110 @@ button:hover {
 .poke-card:hover, .poke-card:focus, .poke-card:active{
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
+}
+
+form{
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+form:hover, form:focus, form:active{
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+
+#ball-one:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s;
+
+/* When the animation is finished, start again */
+/* animation-iteration-count: infinite; */
+}
+
+@keyframes shake {
+0% { transform: translate(0px, 0px) rotate(6deg); }
+10% { transform: translate(0px, 0px) rotate(0deg); }
+20% { transform: translate(0px, 0px) rotate(-6deg); }
+30% { transform: translate(0px, 0px) rotate(0deg); }
+40% { transform: translate(0px, 0px) rotate(6deg); }
+/* 50% { transform: translate(-1px, 2px) rotate(-1deg); } 
+60% { transform: translate(-3px, 1px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 2px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); } */
+}
+
+
+
+ #ball-two:hover {
+     /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(6deg); }
+  10% { transform: translate(0px, 0px) rotate(0deg); }
+   20% { transform: translate(0px, 0px) rotate(-6deg); }
+  30% { transform: translate(0px, 0px) rotate(0deg); }
+   40% { transform: translate(0px, 0px) rotate(6deg); }
+  /* 50% { transform: translate(-1px, 2px) rotate(-1deg); } 
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); } */
+}
+
+ #ball-three:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s;
+
+/* When the animation is finished, start again */
+/* animation-iteration-count: infinite; */
+}
+
+@keyframes shake {
+0% { transform: translate(0px, 0px) rotate(6deg); }
+10% { transform: translate(0px, 0px) rotate(0deg); }
+20% { transform: translate(0px, 0px) rotate(-6deg); }
+30% { transform: translate(0px, 0px) rotate(0deg); }
+40% { transform: translate(0px, 0px) rotate(6deg); }
+/* 50% { transform: translate(-1px, 2px) rotate(-1deg); } 
+60% { transform: translate(-3px, 1px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 2px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); } */
+}
+
+#ball-four:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s;
+
+/* When the animation is finished, start again */
+/* animation-iteration-count: infinite; */
+}
+
+@keyframes shake {
+0% { transform: translate(0px, 0px) rotate(6deg); }
+10% { transform: translate(0px, 0px) rotate(0deg); }
+20% { transform: translate(0px, 0px) rotate(-6deg); }
+30% { transform: translate(0px, 0px) rotate(0deg); }
+40% { transform: translate(0px, 0px) rotate(6deg); }
+/* 50% { transform: translate(-1px, 2px) rotate(-1deg); } 
+60% { transform: translate(-3px, 1px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 2px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); } */
 }
 

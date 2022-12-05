@@ -1,100 +1,101 @@
 [
     {
-        "id": 0,
+      
         "name": "Bulbasaur",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSazUoAAOfbY?format=png&name=240x240",
         "health": 100,
         "attack": 39
     },
     {
-        "id": 1,
+        
         "name": "Charmander",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSb-UYAAUpER?format=png&name=240x240",
         "attack": 32,
         "health": 100
     },
     {
-        "id": 2,
+        
         "name": "Froakie",
         "imgURL": "https://pbs.twimg.com/media/Fi1caRVUYAAJn4e?format=png&name=240x240",
         "attack": 26,
         "health": 100
     },
     {
-        "id": 3,
+
         "name": "Umbreon",
         "imgURL": "https://pbs.twimg.com/media/Fiyztk0VQAI2ihi?format=png&name=240x240",
         "attack": 21,
         "health": 100
     },
     {
-        "id": 4,
+    
         "name": "Pikachu",
         "imgURL": "https://pbs.twimg.com/media/Fi1cVV-VUAE5nPN?format=png&name=240x240",
         "attack": 24,
         "health": 100
     },
     {
-        "id": 5,
+    
         "name": "Poliwhirl",
         "imgURL": "https://pbs.twimg.com/media/Fi1cJ3zVsAAYglV?format=png&name=240x240",
         "attack": 27,
         "health": 100
     },
     {
-        "id": 6,
+    
         "name": "Scyther",
         "imgURL": "https://pbs.twimg.com/media/Fi1cVVeVsAA6akr?format=png&name=240x240",
         "attack": 34,
         "health": 100
     },
     {
-        "id": 7,
+    
         "name": "Sharpedo",
         "imgURL": "https://pbs.twimg.com/media/Fi1cJ31VUAAJwfy?format=png&name=240x240",
         "attack": 33,
         "health": 100
     },
     {
-        "id": 8,
+    
         "name": "Sneasel",
         "imgURL": "https://pbs.twimg.com/media/Fi1cJ32UUAAQMNl?format=png&name=240x240",
         "attack": 35,
         "health": 100
     },
     {
-        "id": 9,
+    
         "name": "Squirtle",
         "imgURL": "https://pbs.twimg.com/media/Fi1cVVGUUAAQsHD?format=png&name=360x360",
         "attack": 30,
         "health": 100
     },
     {
-        "id": 10,
+        
         "name": "Totodile",
         "imgURL": "https://pbs.twimg.com/media/Fi1cVUgVUAAoMzZ?format=png&name=240x240",
         "attack": 28,
         "health": 100
     },
     {
-        "id": 11,
+        
         "name": "Greninja",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSabUYAAviux?format=png&name=240x240",
         "attack": 33,
         "health": 100
     },
     {
-        "id": 12,
+        
         "name": "Rayquaza",
         "imgURL": "https://pbs.twimg.com/media/Fi1cJ3zVIAAu2Bo?format=png&name=240x240",
         "attack": 16,
         "health": 250
     },
     {
-        "id": 13,
+        
         "name": "Metagross",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSaCUcAEgdYq?format=png&name=240x240",
         "attack": 18,
         "health": 220
     }
 ]
+

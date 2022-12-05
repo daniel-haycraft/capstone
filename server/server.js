@@ -16,7 +16,7 @@ const {
   getAllPokemon,
   myTables,
   createPokemon,
-  randomAttackNum,
+  getLegendaries
 } = require('./controller')
 
 app.get('/api/pokemon', getAllPokemon)
