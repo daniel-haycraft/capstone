@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 my capstone project!
 
 INSTALLATION
@@ -38,4 +39,7 @@ you can always play as them!
 
 HOPE YOU ENJOY!
 
+=======
+# capstone
+>>>>>>> bef801400d992686ac7540d3e5c2f8faeff6cc46
 
