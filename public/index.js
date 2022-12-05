@@ -32,7 +32,7 @@ const createPokemon = body => axios.post(`${baseUrl}`, body).then(pokemonCallbac
 let allPoke = []
 let battler = []
 let playersPoke = []
-let wins = 3
+let wins = 0
 let losses = 0
 
 async function myTables(){
@@ -200,7 +200,7 @@ function winner(){
       } else if (wins === 3){
           return three.style.opacity = "0.4"
       } else if(wins === 4){
-        alert('you have obtained a legendary pokemon!')
+        alert('You have beat the elite four!')
         return four.style.opacity = "0.4"
       }
 
