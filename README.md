@@ -19,7 +19,7 @@ GETTING TO THE URL...
 since i have middleware set up you need to either deploy it to a website like heroku or go to 
 http://localhost:4001/?
 
-1.png 
+./1.png 
 is a picture of the layout, choose any pokemon you'd like
 2.png 
 create your own "pokemon with over powered stats to defeat the elite four!"
