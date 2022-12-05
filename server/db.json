@@ -4,7 +4,7 @@
         "name": "Bulbasaur",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSazUoAAOfbY?format=png&name=240x240",
         "health": 100,
-        "attack": 39
+        "attack": 34
     },
     {
         
@@ -17,14 +17,14 @@
         
         "name": "Froakie",
         "imgURL": "https://pbs.twimg.com/media/Fi1caRVUYAAJn4e?format=png&name=240x240",
-        "attack": 26,
+        "attack": 27,
         "health": 100
     },
     {
 
         "name": "Umbreon",
         "imgURL": "https://pbs.twimg.com/media/Fiyztk0VQAI2ihi?format=png&name=240x240",
-        "attack": 21,
+        "attack": 30,
         "health": 100
     },
     {
@@ -45,7 +45,7 @@
     
         "name": "Scyther",
         "imgURL": "https://pbs.twimg.com/media/Fi1cVVeVsAA6akr?format=png&name=240x240",
-        "attack": 34,
+        "attack": 33,
         "health": 100
     },
     {
@@ -87,14 +87,14 @@
         
         "name": "Rayquaza",
         "imgURL": "https://pbs.twimg.com/media/Fi1cJ3zVIAAu2Bo?format=png&name=240x240",
-        "attack": 16,
+        "attack": 25,
         "health": 250
     },
     {
         
         "name": "Metagross",
         "imgURL": "https://pbs.twimg.com/media/Fi1cSaCUcAEgdYq?format=png&name=240x240",
-        "attack": 18,
+        "attack": 25,
         "health": 220
     }
 ]
