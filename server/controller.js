@@ -8,7 +8,7 @@ const getAllPokemon = (req, res) => {
     res.status(200).send(pokemon)
 }
 const myTables = (req, res) => {
-    let allPoke = pokemon
+    let allPoke = pokemon.sort(() => Math.random() - 0.5)
      res.status(200).send(allPoke)
 }
 const createPokemon = (req, res) => {

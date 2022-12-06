@@ -38,7 +38,6 @@ let losses = 0
 async function myTables(){
     let result = await axios.get("/api/get/")
     allPoke = result.data
-    allPoke = allPoke.sort(() => Math.random() - 0.5)
     displayPokemon(allPoke)
 } 
 myTables()
